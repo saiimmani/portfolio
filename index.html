@@ -2,114 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sai Immani | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --glass-bg: rgba(255, 255, 255, 0.1);
-      --glass-border: rgba(255, 255, 255, 0.3);
-      --text-dark: #222;
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --text: #f0f0f0;
+      --muted: #aaa;
       --accent: #007aff;
+      --border: #333;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
 
     body {
-      background: linear-gradient(145deg, #e0eafc, #cfdef3);
-      color: var(--text-dark);
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      font-size: 1.2rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
     }
 
     header {
       text-align: center;
-      padding: 3rem;
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--glass-border);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      margin-bottom: 2rem;
     }
 
-    nav ul {
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+    }
+
+    nav {
+      margin: 1rem 0 2rem;
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
-      list-style: none;
-      margin-top: 1rem;
       flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    nav ul li a {
+    nav a {
       text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 12px;
-      transition: background 0.3s;
-      font-size: 1.1rem;
+      color: var(--text);
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      transition: all 0.3s ease;
     }
 
-    nav ul li a:hover {
+    nav a:hover {
       background: var(--accent);
-      color: white;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
+      color: #fff;
     }
 
     section {
-      margin-bottom: 4rem;
-      background: var(--glass-bg);
-      padding: 3rem;
-      border-radius: 24px;
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      background-color: var(--surface);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
     }
 
     section h2 {
-      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
       color: var(--accent);
-      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 1.5rem auto;
+      border: 6px solid var(--accent);
+      box-shadow: 0 0 25px rgba(0, 122, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(0, 122, 255, 0.6);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
     }
 
     .project {
       margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .project a img.github-icon {
-      width: 30px;
-      height: 30px;
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .project h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .github-icon {
+      width: 24px;
       vertical-align: middle;
-      transition: transform 0.3s;
-    }
-
-    .project a img.github-icon:hover {
-      transform: scale(1.1);
+      margin-left: 0.5rem;
     }
 
     form input,
     form textarea,
     form button {
       width: 100%;
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      border: none;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(6px);
-      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #2a2a2a;
+      color: var(--text);
     }
 
     form button {
@@ -117,74 +147,68 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     form button:hover {
       background: #005ecb;
     }
 
+    #form-status {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-top: 1rem;
+    }
+
     footer {
       text-align: center;
-      padding: 3rem;
-      font-size: 1rem;
-      color: #555;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
-    img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 1.5rem;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
-    }
-
-    #form-status {
-      font-style: italic;
-      color: green;
-      text-align: center;
-      font-size: 1rem;
+    @media (max-width: 768px) {
+      section {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Sai Immani</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
   <main>
+    <header>
+      <h1>Sai Immani</h1>
+    </header>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <section id="about">
       <img src="images/sai_immani.jpg" alt="Sai Immani" />
       <h2>About Me</h2>
-      <p>I am Immani Rama Venkata Sri Sai currently pursuing a Bachelor of Technology (B.Tech) in Computer Science and Engineering at SRM University, where I am developing a strong foundation in software development, algorithms, and cutting-edge technologies. My academic journey is fueled by a passion for problem-solving and
-innovation, with hands-on experience in programming, database management, and network systems. I am eager
-to apply my skills in real-world projects and collaborate with teams to tackle complex challenges in the tech
-industry.</p>
+      <p>I am Immani Rama Venkata Sri Sai currently pursuing a B.Tech in Computer Science and Engineering at SRM University. I'm passionate about problem-solving and innovation, with strong foundations in software development, algorithms, and cutting-edge technologies. I have hands-on experience in programming, database management, and network systems, and I'm eager to contribute to real-world projects and collaborate with teams on complex tech challenges.</p>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>Languages: C, C++, Java, Python, SQL, JavaScript, HTML</li>
-        <li>Tools: VS Code, MySQL, Git, XCode</li>
-        <li>Core CS: DSA, Operating Systems, DBMS, AI</li>
+        <li><strong>Languages:</strong> C, C++, Java, Python, SQL, JavaScript</li>
+        <li><strong>Tools:</strong> VS Code, Git, XCode, Microsoft SQL Server</li>
+        <li><strong>Core Subjects:</strong> DSA, Operating Systems, DBMS, AI, DAA, COA, IoT</li>
       </ul>
     </section>
 
     <section id="education">
       <h2>Education</h2>
-      <h3>SRM Institute Of Science and Technology</h3>
-      <p><strong>B.Tech in Computer Science and Engineering</strong><br>Aug 2023 – May 2027</p>
+      <h3>SRM Institute of Science and Technology</h3>
+      <p><strong>B.Tech in Computer Science and Engineering</strong> (Aug 2023 – May 2027)</p>
       <ul>
         <li>GPA: 8.86 (Currently 5th Semester)</li>
         <li>Coursework: Data Structures and Algorithms, Operating Systems, DBMS, AI, DAA, COA, IoT</li>
@@ -193,34 +217,43 @@ industry.</p>
 
     <section id="experience">
       <h2>Experience</h2>
+      <h3>Projects</h3>
 
-      <h3>1. Projects</h3>
       <div class="project">
-        <h4>🚍 Bus Management System Using Java</h4>
-        <p>A Java Swing GUI integrated with MySQL for bus schedules and passenger management.</p>
+        <h4>🚍 Bus Management System Using Java
+          <a href="https://github.com/saiimmani/BUS-MANAGEMENT-SYSTEM" target="_blank">
+            🔗
+          </a>
+        </h4>
+        <p>A user-friendly Java Swing application integrated with MySQL to manage bus schedules, routes, and passenger data efficiently for administrators.</p>
         <p><strong>Tools Used:</strong> Java, MySQL</p>
-        <a href="https://github.com/saiimmani/BUS-MANAGEMENT-SYSTEM" target="_blank"><img src="images/github.png" class="github-icon" /></a>
       </div>
 
       <div class="project">
-        <h4>📸 Face Recognition System</h4>
-        <p>Python-based attendance automation system using AI for face detection.</p>
+        <h4>📸 Face Recognition Attendance System
+          <a href="https://github.com/saiimmani/FaceRecognitionAttendanceSystem" target="_blank">
+            🔗
+          </a>
+        </h4>
+        <p>A Python-based AI system to automate attendance tracking using facial recognition and record keeping.</p>
         <p><strong>Tools Used:</strong> Python</p>
-        <a href="https://github.com/saiimmani/FaceRecognitionAttendanceSystem" target="_blank"><img src="images/github.png" class="github-icon" /></a>
       </div>
 
       <div class="project">
-        <h4>🧾 Grocery Billing System</h4>
-        <p>Python-based FCFS grocery billing simulation system.</p>
+        <h4>🧾 Grocery Billing System
+          <a href="https://github.com/saiimmani/BillingSystem" target="_blank">
+            🔗
+          </a>
+        </h4>
+        <p>Simulates a billing process using FCFS (First Come First Serve) logic for optimized customer checkout flow.</p>
         <p><strong>Tools Used:</strong> Python</p>
-        <a href="https://github.com/saiimmani/BillingSystem" target="_blank"><img src="images/github.png" class="github-icon" /></a>
       </div>
 
-      <h3>2. Hackathons and Coding Competitions</h3>
+      <h3>Hackathons & Competitions</h3>
       <ul>
         <li>Code Craft Chase Hackathon – SRM University (Mar 20–21, 2025)</li>
         <li>Abode India Hackathon 2025</li>
-        <li>TCS CodeVita 12 – Round 1</li>
+        <li>TCS CodeVita 12 – Qualified Round 1</li>
       </ul>
     </section>
 
@@ -232,7 +265,7 @@ industry.</p>
         <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
         <button type="submit">Send</button>
       </form>
-      <p id="form-status">Thank You</p>
+      <p id="form-status">Thank You 🙏</p>
     </section>
   </main>
 
@@ -241,39 +274,33 @@ industry.</p>
   </footer>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyjbvo7L0vonVx1DA14yFYVzJVl6TRnCAvks1r8Z9BaNi7fAm9jl3lqkGuR4iI7n8fD/exec';
     const form = document.getElementById("contact-form");
     const status = document.getElementById("form-status");
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-
       const formData = new FormData(form);
       const urlEncoded = new URLSearchParams(formData).toString();
 
       status.textContent = "Sending...";
 
-      fetch(scriptURL, {
+      fetch("https://script.google.com/macros/s/AKfycbyjbvo7L0vonVx1DA14yFYVzJVl6TRnCAvks1r8Z9BaNi7fAm9jl3lqkGuR4iI7n8fD/exec", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: urlEncoded
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: urlEncoded,
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.result === "success") {
-            status.textContent = "✅ Message sent successfully!";
-            form.reset();
-          } else {
-            status.textContent = "❌ Error sending message.";
-            console.error("Response error:", data);
-          }
-        })
-        .catch((err) => {
-          console.error("Form submission error:", err);
-          status.textContent = "❌ Submission failed.";
-        });
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result === "success") {
+          status.textContent = "✅ Message sent successfully!";
+          form.reset();
+        } else {
+          status.textContent = "❌ Error sending message.";
+        }
+      })
+      .catch(() => {
+        status.textContent = "❌ Submission failed.";
+      });
     });
   </script>
 </body>
