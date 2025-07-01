@@ -1,0 +1,222 @@
+:root {
+  --bg: #0f0f0f;
+  --surface: rgba(255, 255, 255, 0.05);
+  --text: #f9f9f9;
+  --muted: #aaa;
+  --accent: #00d4ff;
+  --accent-dark: #0099cc;
+  --glass: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.15);
+  --blur: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00d4ff, #007aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(var(--blur));
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(var(--blur));
+  padding: 2.5rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+}
+
+img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 2rem auto;
+  border: 5px solid var(--accent);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project {
+  margin-bottom: 1.5rem;
+}
+
+.project h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.project a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+form {
+  background: var(--glass);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(var(--blur));
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+  resize: none;
+}
+
+form button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: var(--accent-dark);
+}
+
+#form-status {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: var(--accent);
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.resume-btn {
+
+  display: block;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.resume-btn:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+.resume-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  width: fit-content;
+}
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #fff, #00bbff, #ff69b4);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: sparkleFade 0.5s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkleFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

@@ -7,267 +7,12 @@
 
   <link rel="icon" type="image/svg+xml" href="images/logo.png">
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
-
+     <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-      --bg: #0f0f0f;
-      --surface: rgba(255, 255, 255, 0.05);
-      --text: #f9f9f9;
-      --muted: #aaa;
-      --accent: #00d4ff;
-      --accent-dark: #0099cc;
-      --glass: rgba(255, 255, 255, 0.1);
-      --border: rgba(255, 255, 255, 0.15);
-      --blur: 20px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 3rem 1rem;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: var(--accent);
-      background: linear-gradient(90deg, #00d4ff, #007aff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: floatIn 1s ease-in-out;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin: 2rem 0;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      padding: 0.6rem 1.4rem;
-      border-radius: 10px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(var(--blur));
-      transition: all 0.3s ease;
-      animation: fadeUp 0.6s ease both;
-    }
-    nav a:hover {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    section {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-      border: 1px solid var(--border);
-      backdrop-filter: blur(var(--blur));
-      padding: 2.5rem;
-      border-radius: 20px;
-      margin-bottom: 3rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      animation: fadeUp 1s ease-out forwards;
-      opacity: 0;
-    }
-
-    section:hover {
-      transform: translateY(-4px) scale(1.01);
-      transition: all 0.3s ease;
-      box-shadow: 0 12px 35px rgba(0, 212, 255, 0.2);
-    }
-
-    section h2 {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 1rem;
-    }
-
-    img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 2rem auto;
-      border: 5px solid var(--accent);
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-      transition: all 0.4s ease;
-      animation: floatImage 4s ease-in-out infinite;
-    }
-
-    img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.9);
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li {
-      margin-bottom: 0.7rem;
-    }
-
-    .project {
-      padding-bottom: 1.5rem;
-      border-bottom: 1px dashed var(--border);
-    }
-
-    .project h4 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-
-    .project a {
-      text-decoration: none;
-      color: var(--text);
-      transition: opacity 0.3s ease;
-    }
-
-    .project a:hover {
-      opacity: 0.6;
-    }
-
-    form {
-      background: var(--glass);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(var(--blur));
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.9rem;
-      margin-bottom: 1rem;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text);
-      resize: none;
-    }
-
-    form button {
-      width: 100%;
-      padding: 1rem;
-      background: var(--accent);
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background: var(--accent-dark);
-      box-shadow: 0 0 15px var(--accent);
-    }
-
-    #form-status {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-top: 1.2rem;
-      color: var(--accent);
-    }
-
-    .resume-btn {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 1rem 2rem;
-      font-weight: bold;
-      border-radius: 12px;
-      text-align: center;
-      background: var(--accent);
-      color: #000;
-      text-decoration: none;
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-    }
-
-    .resume-btn:hover {
-      background: var(--accent-dark);
-      color: #fff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes floatIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes floatImage {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 1.5rem;
-      }
-      header h1 {
-        font-size: 2.2rem;
-      }
-      section h2 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
-
-
 </head>
 <body>
+  <div id="tsparticles"></div>
+
   <main>
     <header>
       <h1>Immani Rama Venkata Sri Sai</h1>
@@ -351,11 +96,11 @@
         <input type="email" name="email" placeholder="Your Email" required />
         <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
         <button type="submit">Send</button>
-      </form>
-      <p id="form-status" style="display: none;">Thank You 🙏</p>
-      <div style="text-align: center;">
-        <a href="images/Sai_s_CV.pdf" download class="resume-btn">📄 Download Resume</a>
-      </div>
+   </form>
+      <p id="form-status">📤 Sending...</p>
+      <a href="images/Sai_s_CV.pdf" download class="resume-btn">📄 Download Resume</a>
+    </section>
+
     </section>
 
     <footer>
@@ -364,36 +109,56 @@
       <a href="https://github.com/saiimmani" target="_blank">GitHub</a></p>
     </footer>
 
-    <script>
-      
-      const form = document.getElementById("contact-form");
-      const status = document.getElementById("form-status");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const urlEncoded = new URLSearchParams(formData).toString();
-        status.textContent = "Sending...";
-
-        fetch("https://script.google.com/macros/s/AKfycbyjbvo7L0vonVx1DA14yFYVzJVl6TRnCAvks1r8Z9BaNi7fAm9jl3lqkGuR4iI7n8fD/exec", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: urlEncoded,
-        })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.result === "success") {
-            status.textContent = "✅ Message sent successfully!";
-            form.reset();
-          } else {
-            status.textContent = "❌ Error sending message.";
-          }
-        })
-        .catch(() => {
-          status.textContent = "❌ Submission failed.";
-        });
-      });
-    </script>
   </main>
+  <script src="script.js"></script>
+  <!-- tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("tsparticles", {
+    fullScreen: {
+      enable: true,
+      zIndex: -1
+    },
+    particles: {
+      number: {
+        value: 80
+      },
+      color: {
+        value: ["#ffffff", "#ffd700", "#ff69b4"]
+      },
+      shape: {
+        type: "circle"
+      },
+      opacity: {
+        value: 0.8
+      },
+      size: {
+        value: 2,
+        random: true
+      },
+      move: {
+        enable: true,
+        speed: 1
+      }
+    },
+    background: {
+      color: {
+        value: "#00000000"  /* Transparent */
+      }
+    }
+  });
+  document.addEventListener("mousemove", function (e) {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.style.left = `${e.pageX}px`;
+    sparkle.style.top = `${e.pageY}px`;
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 500); // sparkle disappears after 0.5s
+  });
+</script>
+
 </body>
 </html>
