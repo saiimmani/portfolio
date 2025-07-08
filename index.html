@@ -449,22 +449,20 @@
 
     // Touch events for mobile
     document.addEventListener("touchstart", function (e) {
-      e.preventDefault();
       for (let i = 0; i < e.touches.length; i++) {
         const touch = e.touches[i];
         createGlitter(touch.pageX, touch.pageY, 'touch');
       }
-    }, { passive: false });
+    }, { passive: true });
 
     document.addEventListener("touchmove", function (e) {
-      e.preventDefault();
       for (let i = 0; i < e.touches.length; i++) {
         const touch = e.touches[i];
         if (Math.random() > 0.3) { // 70% chance for touch move
           createGlitter(touch.pageX, touch.pageY, 'touch');
         }
       }
-    }, { passive: false });
+    }, { passive: true });
 
     // Click/tap burst effect
     document.addEventListener("click", function (e) {
