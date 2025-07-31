@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="Sai Immani - Computer Science Engineering Student, Software Developer, and Problem Solver. Portfolio showcasing projects, skills, and experience." />
   <meta name="keywords" content="Sai Immani, Computer Science, Software Developer, Portfolio, SRM University, Programming, Web Development, Java, Python, React" />
   <meta name="author" content="Sai Immani" />
@@ -21,14 +21,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="images/sai_immani.jpg" as="image">
 </head>
 <body>
-  <div id="tsparticles"></div>
-
   <main>
     <header>
       <h1>Immani Rama Venkata Sri Sai</h1>
-      <p class="header-subtitle">Computer Science Engineering Student • Software Developer • Problem Solver</p>
+      <p class="header-subtitle"> Software Developer</p>
     </header>
 
     <nav role="navigation" aria-label="Main navigation">
@@ -40,7 +39,8 @@
     </nav>
 
     <section id="about">
-      <img src="images/sai_immani.jpg" alt="Sai Immani" />
+      <img src="images/sai_immani.jpg" alt="Sai Immani - Professional headshot" loading="lazy" aria-describedby="profile-description" />
+      <span id="profile-description" class="visually-hidden">Professional headshot of Sai Immani with a dark theme background</span>
       <h2>About Me</h2>
       <p>Hello! I'm <strong>Immani Rama Venkata Sri Sai</strong>, a passionate Computer Science and Engineering student at SRM Institute of Science and Technology with a stellar <strong>9.00 GPA</strong>. Currently in my 5th semester, I'm dedicated to mastering the art of software development and emerging technologies.</p>
       
@@ -56,7 +56,7 @@
       
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>💻 Programming Languages</h3>
+          <h3>Programming Languages</h3>
           <ul>
             <li><strong>Primary:</strong> C, C++, Java, Python</li>
             <li><strong>Web Technologies:</strong> JavaScript, HTML5, CSS3</li>
@@ -66,7 +66,7 @@
         </div>
         
         <div class="skill-category">
-          <h3>🛠️ Development Tools & Platforms</h3>
+          <h3>Development Tools & Platforms</h3>
           <ul>
             <li><strong>IDEs:</strong> VS Code, XCode, IntelliJ IDEA</li>
             <li><strong>Version Control:</strong> Git, GitHub</li>
@@ -76,7 +76,7 @@
         </div>
         
         <div class="skill-category">
-          <h3>📚 Core Computer Science</h3>
+          <h3> Core Computer Science</h3>
           <ul>
             <li><strong>Algorithms:</strong> Data Structures & Algorithms (DSA)</li>
             <li><strong>Systems:</strong> Operating Systems, Computer Organization & Architecture (COA)</li>
@@ -104,7 +104,7 @@
         </div>
         
         <div class="coursework">
-          <h4>📖 Key Coursework & Specializations</h4>
+          <h4>Key Coursework & Specializations</h4>
           <div class="course-grid">
             <div class="course-category">
               <strong>Core Programming & Algorithms</strong>
@@ -285,206 +285,6 @@
 
   </main>
   <script src="script.js"></script>
-  <!-- tsParticles CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script>
-    // Enhanced Particle System
-    tsParticles.load("tsparticles", {
-      fullScreen: {
-        enable: true,
-        zIndex: -1
-      },
-      particles: {
-        number: {
-          value: 120,
-          density: {
-            enable: true,
-            value_area: 800
-          }
-        },
-        color: {
-          value: ["#ffffff", "#007aff", "#5856d6", "#af52de", "#ffd700", "#ff69b4"]
-        },
-        shape: {
-          type: ["circle", "star"],
-          options: {
-            star: {
-              sides: 5
-            }
-          }
-        },
-        opacity: {
-          value: 0.8,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 1,
-            opacity_min: 0.1,
-            sync: false
-          }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 2,
-            size_min: 0.1,
-            sync: false
-          }
-        },
-        move: {
-          enable: true,
-          speed: 0.8,
-          direction: "none",
-          random: true,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: {
-            enable: true,
-            rotateX: 600,
-            rotateY: 1200
-          }
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: "bubble"
-          },
-          onclick: {
-            enable: true,
-            mode: "push"
-          },
-          resize: true
-        },
-        modes: {
-          bubble: {
-            distance: 100,
-            size: 8,
-            duration: 2,
-            opacity: 0.8,
-            speed: 3
-          },
-          push: {
-            particles_nb: 4
-          }
-        }
-      },
-      background: {
-        color: {
-          value: "#00000000"
-        }
-      }
-    });
-
-    // Enhanced Glitter Effect for Desktop and Mobile
-    let glitterCount = 0;
-    const maxGlitter = 15;
-    let lastGlitterTime = 0;
-    const glitterDelay = 20; // Minimum delay between glitter creation
-
-    function createGlitter(x, y, type = 'mouse') {
-      const now = Date.now();
-      if (now - lastGlitterTime < glitterDelay) return;
-      
-      if (glitterCount >= maxGlitter) return;
-      
-      lastGlitterTime = now;
-      glitterCount++;
-
-      const glitter = document.createElement("div");
-      glitter.classList.add("enhanced-glitter");
-      
-      // Random glitter variations
-      const glitterTypes = ['sparkle', 'star', 'diamond', 'circle'];
-      const randomType = glitterTypes[Math.floor(Math.random() * glitterTypes.length)];
-      glitter.classList.add(randomType);
-      
-      // Position
-      glitter.style.left = `${x}px`;
-      glitter.style.top = `${y}px`;
-      
-      // Random size and color
-      const size = Math.random() * 8 + 4;
-      glitter.style.width = `${size}px`;
-      glitter.style.height = `${size}px`;
-      
-      // Random colors from iOS palette
-      const colors = [
-        'rgba(0, 122, 255, 0.9)',
-        'rgba(88, 86, 214, 0.9)',
-        'rgba(175, 82, 222, 0.9)',
-        'rgba(255, 215, 0, 0.9)',
-        'rgba(255, 105, 180, 0.9)',
-        'rgba(255, 255, 255, 0.9)'
-      ];
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      glitter.style.background = randomColor;
-      glitter.style.boxShadow = `0 0 ${size * 2}px ${randomColor}`;
-      
-      // Random animation duration
-      const duration = Math.random() * 300 + 400;
-      glitter.style.animationDuration = `${duration}ms`;
-      
-      document.body.appendChild(glitter);
-
-      setTimeout(() => {
-        if (glitter.parentNode) {
-          glitter.remove();
-          glitterCount--;
-        }
-      }, duration + 100);
-    }
-
-    // Mouse move event for desktop
-    document.addEventListener("mousemove", function (e) {
-      if (Math.random() > 0.4) { // 60% chance to create glitter
-        createGlitter(e.pageX, e.pageY, 'mouse');
-      }
-    });
-
-    // Touch events for mobile
-    document.addEventListener("touchstart", function (e) {
-      for (let i = 0; i < e.touches.length; i++) {
-        const touch = e.touches[i];
-        createGlitter(touch.pageX, touch.pageY, 'touch');
-      }
-    }, { passive: true });
-
-    document.addEventListener("touchmove", function (e) {
-      for (let i = 0; i < e.touches.length; i++) {
-        const touch = e.touches[i];
-        if (Math.random() > 0.3) { // 70% chance for touch move
-          createGlitter(touch.pageX, touch.pageY, 'touch');
-        }
-      }
-    }, { passive: true });
-
-    // Click/tap burst effect
-    document.addEventListener("click", function (e) {
-      // Create burst of glitter
-      for (let i = 0; i < 5; i++) {
-        setTimeout(() => {
-          const offsetX = (Math.random() - 0.5) * 40;
-          const offsetY = (Math.random() - 0.5) * 40;
-          createGlitter(e.pageX + offsetX, e.pageY + offsetY, 'burst');
-        }, i * 50);
-      }
-    });
-
-    // Auto glitter effect (ambient)
-    setInterval(() => {
-      if (Math.random() > 0.8) { // 20% chance every interval
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        createGlitter(x, y, 'ambient');
-      }
-    }, 2000);
-  </script>
 
 </body>
 </html>
