@@ -7,29 +7,48 @@ document.addEventListener("DOMContentLoaded", () => {
   // Auto-hide navigation functionality
   let lastScrollY = window.scrollY;
   let isScrolling = false;
-  let showTimeout;
+  let hideTimeout;
+  let isNavVisible = false;
+
+  // Initially hide navigation
+  nav.classList.add('nav-hidden');
+
+  const showNavigation = () => {
+    if (!isNavVisible) {
+      nav.classList.remove('nav-hidden');
+      nav.classList.add('nav-visible');
+      isNavVisible = true;
+    }
+    
+    // Clear existing timeout
+    clearTimeout(hideTimeout);
+    
+    // Auto-hide after 3 seconds of inactivity
+    hideTimeout = setTimeout(() => {
+      if (isNavVisible && !nav.matches(':hover')) {
+        nav.classList.add('nav-hidden');
+        nav.classList.remove('nav-visible');
+        isNavVisible = false;
+      }
+    }, 3000);
+  };
 
   const handleNavVisibility = () => {
     const currentScrollY = window.scrollY;
     const scrollDifference = Math.abs(currentScrollY - lastScrollY);
     
-    // Clear any existing timeout
-    clearTimeout(showTimeout);
-    
-    // Only trigger if scrolled enough to avoid jitter
-    if (scrollDifference > 8) {
-      if (currentScrollY > lastScrollY && currentScrollY > 120) {
-        // Scrolling down and past header - hide nav
-        nav.classList.add('nav-hidden');
-        nav.classList.remove('nav-visible');
-      } else if (currentScrollY < lastScrollY || currentScrollY <= 60) {
-        // Scrolling up or near top - show nav
-        nav.classList.remove('nav-hidden');
-        nav.classList.add('nav-visible');
-      }
-      lastScrollY = currentScrollY;
+    // Only show nav when actively scrolling and past header
+    if (currentScrollY > 150 && scrollDifference > 5) {
+      showNavigation();
+    } else if (currentScrollY <= 100) {
+      // Hide nav when near top
+      clearTimeout(hideTimeout);
+      nav.classList.add('nav-hidden');
+      nav.classList.remove('nav-visible');
+      isNavVisible = false;
     }
     
+    lastScrollY = currentScrollY;
     isScrolling = false;
   };
 
@@ -40,32 +59,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Show nav on mouse movement near top of screen
+  // Show nav on mouse movement near top of screen (for quick access)
   const onMouseMove = (e) => {
-    if (e.clientY < 120) {
-      clearTimeout(showTimeout);
-      nav.classList.remove('nav-hidden');
-      nav.classList.add('nav-visible');
-      
-      // Auto-hide after mouse leaves top area
-      showTimeout = setTimeout(() => {
-        if (window.scrollY > 120 && e.clientY > 120) {
-          nav.classList.add('nav-hidden');
-          nav.classList.remove('nav-visible');
-        }
-      }, 2000);
+    if (e.clientY < 80 && window.scrollY > 150) {
+      showNavigation();
     }
   };
+
+  // Prevent auto-hide when hovering over navigation
+  nav.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+  });
+
+  nav.addEventListener('mouseleave', () => {
+    if (isNavVisible) {
+      hideTimeout = setTimeout(() => {
+        nav.classList.add('nav-hidden');
+        nav.classList.remove('nav-visible');
+        isNavVisible = false;
+      }, 1500);
+    }
+  });
 
   // Add event listeners
   window.addEventListener('scroll', onScroll, { passive: true });
   document.addEventListener('mousemove', onMouseMove, { passive: true });
-
-  // Show nav when hovering over it
-  nav.addEventListener('mouseenter', () => {
-    nav.classList.remove('nav-hidden');
-    nav.classList.add('nav-visible');
-  });
 
   // Smooth scrolling for navigation links
   document.querySelectorAll('nav a[href^="#"]').forEach(link => {
@@ -82,6 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Update URL without triggering scroll
         history.pushState(null, null, targetId);
+        
+        // Hide navigation after clicking a link
+        setTimeout(() => {
+          nav.classList.add('nav-hidden');
+          nav.classList.remove('nav-visible');
+          isNavVisible = false;
+        }, 500);
       }
     });
   });
