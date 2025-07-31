@@ -1733,13 +1733,14 @@ footer a:hover::after {
 /* Responsive Design */
 @media (max-width: 768px) {
   main {
-    padding: 6.5rem 0.75rem 1rem;
+    padding: 5.5rem 0.75rem 1rem;
     max-width: 100%;
   }
   
   header {
     margin-bottom: 2.5rem;
     padding: 2rem 1rem;
+    margin-top: 1rem;
   }
   
   header h1 {
@@ -1777,7 +1778,7 @@ footer a:hover::after {
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 1.5rem;
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     max-width: calc(100vw - 2rem);
@@ -1796,6 +1797,7 @@ footer a:hover::after {
       var(--shadow-lg),
       0 0 0 1px var(--glass-highlight),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    z-index: 10000;
   }
   
   nav a {
@@ -1938,8 +1940,14 @@ footer a:hover::after {
 }
 
 @media (max-width: 480px) {
+  nav {
+    top: 0.5rem;
+    padding: 0.75rem 1rem;
+    min-width: 280px;
+  }
+  
   main {
-    padding: 6rem 0.5rem 0.75rem;
+    padding: 5rem 0.5rem 0.75rem;
   }
   
   section {
@@ -1974,6 +1982,20 @@ footer a:hover::after {
 }
 
 @media (max-width: 380px) {
+  nav {
+    top: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    min-width: 260px;
+    gap: 0.25rem;
+  }
+  
+  nav a {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.7rem;
+    min-width: 70px;
+    max-width: 110px;
+  }
+  
   section {
     padding: 1.5rem 1rem;
   }
