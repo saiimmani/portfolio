@@ -2,6 +2,70 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const submitButton = form.querySelector('button[type="submit"]');
+  const nav = document.querySelector('nav');
+
+  // Auto-hide navigation functionality
+  let lastScrollY = window.scrollY;
+  let isScrolling = false;
+  let showTimeout;
+
+  const handleNavVisibility = () => {
+    const currentScrollY = window.scrollY;
+    const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+    
+    // Clear any existing timeout
+    clearTimeout(showTimeout);
+    
+    // Only trigger if scrolled enough to avoid jitter
+    if (scrollDifference > 8) {
+      if (currentScrollY > lastScrollY && currentScrollY > 120) {
+        // Scrolling down and past header - hide nav
+        nav.classList.add('nav-hidden');
+        nav.classList.remove('nav-visible');
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 60) {
+        // Scrolling up or near top - show nav
+        nav.classList.remove('nav-hidden');
+        nav.classList.add('nav-visible');
+      }
+      lastScrollY = currentScrollY;
+    }
+    
+    isScrolling = false;
+  };
+
+  const onScroll = () => {
+    if (!isScrolling) {
+      isScrolling = true;
+      requestAnimationFrame(handleNavVisibility);
+    }
+  };
+
+  // Show nav on mouse movement near top of screen
+  const onMouseMove = (e) => {
+    if (e.clientY < 120) {
+      clearTimeout(showTimeout);
+      nav.classList.remove('nav-hidden');
+      nav.classList.add('nav-visible');
+      
+      // Auto-hide after mouse leaves top area
+      showTimeout = setTimeout(() => {
+        if (window.scrollY > 120 && e.clientY > 120) {
+          nav.classList.add('nav-hidden');
+          nav.classList.remove('nav-visible');
+        }
+      }, 2000);
+    }
+  };
+
+  // Add event listeners
+  window.addEventListener('scroll', onScroll, { passive: true });
+  document.addEventListener('mousemove', onMouseMove, { passive: true });
+
+  // Show nav when hovering over it
+  nav.addEventListener('mouseenter', () => {
+    nav.classList.remove('nav-hidden');
+    nav.classList.add('nav-visible');
+  });
 
   // Smooth scrolling for navigation links
   document.querySelectorAll('nav a[href^="#"]').forEach(link => {
