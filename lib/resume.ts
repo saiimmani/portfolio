@@ -123,6 +123,17 @@ export const resume: Resume = {
         "Features include secure user registration/login, expert health advice based on BMI, calorie logging, and profile update functionality.",
         "Tools used: Python, Tkinter, NumPy, Scikit-learn, JSON."
       ]
+    },
+    {
+      title: "AI Study Buddy",
+      link: "https://saiimmani-ai-study-buddy-app.streamlit.app/",
+      bullets: [
+        "Developed an AI-powered study companion to help students understand complex concepts and improve their learning experience.",
+        "Features include concept explanation in simple terms, automatic summarization of study notes, and intelligent quiz/flashcard generation.",
+        "Solves the problem of finding relevant educational resources and provides on-demand personalized learning support when teachers aren't available.",
+        "Built with Streamlit for an intuitive user interface and integrated with advanced AI models for content generation and analysis.",
+        "Tools used: Streamlit, Python, AI APIs, LLMs."
+      ]
     }
   ],
   skills: {
@@ -146,7 +157,7 @@ export const resume: Resume = {
       category: "Cloud & Infrastructure",
       title: "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
       issuer: "Oracle",
-      link: "https://www.bing.com/search?q=%22https%3A%2F%2Fcatalog-education.oracle.com%2Fords%2Fcertview%2Fsharebadge%3Fid%3DD7368B5D6B7AEFB5B7AE78764E8803854A26D2FDBC151CDD4325E6E8B90C66D3%22"
+      link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=D7368B5D6B7AEFB5B7AE78764E8803854A26D2FDBC151CDD4325E6E8B90C66D3"
     },
     {
       category: "Cloud & Infrastructure",
