@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     "Portfolio of Immani Rama Venkata Sri Sai, B.Tech CSE student showcasing projects, skills, and certifications.",
   metadataBase: new URL("https://example.com"),
   icons: {
-    icon: "/logo.ico",
-    apple: "/logo.png"
+    icon: "/portfolio/logo.ico",
+    apple: "/portfolio/logo.png"
   },
   openGraph: {
     title: `${resume.name} | Portfolio`,
