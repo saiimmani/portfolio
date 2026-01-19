@@ -25,7 +25,7 @@ export function Hero() {
         >
           <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-accent/40 to-accent/10 blur-sm" />
           <img
-            src="/sai_immani.png"
+            src="/portfolio/sai_immani.png"
             alt={resume.name}
             className="relative h-28 w-28 flex-shrink-0 rounded-3xl border-2 border-white/20 object-cover shadow-xl sm:h-36 sm:w-36"
           />
