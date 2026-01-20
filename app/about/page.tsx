@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { resume } from "@/lib/resume";
 import { Mail, Github, Linkedin, MapPin, Code2, Cpu, Brain, Users, GraduationCap, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -224,13 +225,13 @@ export default function AboutPage() {
         <p className="text-neutral-400">
           Want to see what I've built?
         </p>
-        <a
+        <Link
           href="/projects"
           className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent/80 hover:scale-[1.02]"
         >
           View Projects
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </a>
+        </Link>
       </motion.div>
     </div>
   );
