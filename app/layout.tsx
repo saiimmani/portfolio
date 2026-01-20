@@ -4,14 +4,17 @@ import { resume } from "@/lib/resume";
 import { AppThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 
+const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/portfolio' : '';
+
 export const metadata: Metadata = {
   title: `${resume.name} | Portfolio`,
   description:
     "Portfolio of Immani Rama Venkata Sri Sai, B.Tech CSE student showcasing projects, skills, and certifications.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://saiimmani.github.io"),
   icons: {
-    icon: "/portfolio/logo.ico",
-    apple: "/portfolio/logo.png"
+    icon: `${basePath}/logo.ico`,
+    apple: `${basePath}/logo.png`
   },
   openGraph: {
     title: `${resume.name} | Portfolio`,

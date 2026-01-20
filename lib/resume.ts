@@ -91,7 +91,7 @@ export const resume: Resume = {
     {
       title: "Gesture Controlled Robot Using MPU-6050",
       timeline: "In-House Project – Jan 2025 to Jan 2026",
-      thumbnail: "/portfolio/robot.png",
+      thumbnail: "/robot.png",
       bullets: [
         "Building a gesture-based robotic system that allows users to control robot movement through natural hand motions using the MPU-6050 (accelerometer + gyroscope).",
         "Transmitter uses an Arduino Nano connected to the MPU-6050 to capture and process real-time gesture data.",
@@ -105,7 +105,7 @@ export const resume: Resume = {
     {
       title: "Face Recognition Attendance System Using AI Algorithms",
       link: "https://github.com/saiimmani/FaceRecognitionAttendanceSystem",
-      thumbnail: "/portfolio/Face.png",
+      thumbnail: "/Face.png",
       bullets: [
         "Developed an automated attendance system using real-time face recognition with Python, OpenCV, and the face recognition library.",
         "Enabled accurate face detection and recognition using ML algorithms; supports capturing faces, marking attendance, and managing data via Pandas.",
@@ -116,7 +116,7 @@ export const resume: Resume = {
     {
       title: "Next-Gen Fitness with AI Precision",
       link: "https://github.com/saiimmani/Fitness-Tracker",
-      thumbnail: "/portfolio/fitness.png",
+      thumbnail: "/fitness.png",
       bullets: [
         "Developed a Tkinter-based AI fitness tracker that securely manages user profiles, calculates BMI, and personalizes workout plans based on fitness goals.",
         "Integrated a Linear Regression model using Scikit-learn to predict daily calorie burn based on historical data.",

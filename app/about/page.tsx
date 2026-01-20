@@ -6,7 +6,7 @@ import { Mail, Github, Linkedin, MapPin, Code2, Cpu, Brain, Users, GraduationCap
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-4xl space-y-20 px-4 py-20 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl space-y-20">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -232,6 +232,6 @@ export default function AboutPage() {
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </a>
       </motion.div>
-    </main>
+    </div>
   );
 }

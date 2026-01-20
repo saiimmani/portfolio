@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { resume } from "@/lib/resume";
 import { ExternalLink, Github, Rocket, Calendar } from "lucide-react";
 
+const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
+
 export default function ProjectsPage() {
   return (
-    <main className="mx-auto max-w-5xl space-y-16 px-4 py-20 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl space-y-16">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -47,7 +49,7 @@ export default function ProjectsPage() {
               {project.thumbnail && (
                 <div className="relative h-64 overflow-hidden sm:h-80">
                   <motion.img
-                    src={project.thumbnail}
+                    src={`${basePath}${project.thumbnail}`}
                     alt={project.title}
                     className="h-full w-full object-cover"
                     whileHover={{ scale: 1.05 }}
@@ -131,6 +133,6 @@ export default function ProjectsPage() {
           Follow on GitHub
         </a>
       </motion.div>
-    </main>
+    </div>
   );
 }

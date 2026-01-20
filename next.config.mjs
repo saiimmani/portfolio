@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
-  // GitHub Pages project site at https://saiimmani.github.io/portfolio
-  basePath: '/portfolio',
-  assetPrefix: '/portfolio/',
+  // Only use basePath in production for GitHub Pages
+  basePath: isProd ? '/portfolio' : '',
+  assetPrefix: isProd ? '/portfolio/' : '',
   images: {
     unoptimized: true
   },

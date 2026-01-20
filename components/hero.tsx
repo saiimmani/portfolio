@@ -5,6 +5,8 @@ import { Mail, MapPin, Phone, Github, Linkedin, Sparkles } from "lucide-react";
 import { resume } from "@/lib/resume";
 import { Chip } from "./chip";
 
+const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
+
 export function Hero() {
   return (
     <motion.div
@@ -16,18 +18,18 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_20%,rgba(10,132,255,0.15),transparent_50%),radial-gradient(ellipse_at_80%_80%,rgba(10,132,255,0.08),transparent_50%)]" />
       <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent/10 blur-3xl" />
       <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-accent/5 blur-3xl" />
-      <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
+      <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative"
+          className="relative flex-shrink-0 self-center sm:self-start"
         >
-          <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-accent/40 to-accent/10 blur-sm" />
+          <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/5 blur-md sm:rounded-3xl" />
           <img
-            src="/portfolio/sai_immani.png"
+            src={`${basePath}/sai_immani.png`}
             alt={resume.name}
-            className="relative h-28 w-28 flex-shrink-0 rounded-3xl border-2 border-white/20 object-cover shadow-xl sm:h-36 sm:w-36"
+            className="relative h-28 w-28 rounded-2xl border-2 border-white/20 object-cover shadow-xl sm:h-32 sm:w-32 md:h-36 md:w-36 sm:rounded-3xl"
           />
         </motion.div>
         <div className="flex flex-1 flex-col gap-5 sm:gap-6">

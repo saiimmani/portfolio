@@ -17,7 +17,7 @@ function getIcon(role: string) {
 
 export default function ExperiencePage() {
   return (
-    <main className="mx-auto max-w-4xl space-y-16 px-4 py-20 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl space-y-16">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -127,13 +127,13 @@ export default function ExperiencePage() {
           Interested in collaborating?
         </p>
         <a
-          href="/about"
+          href="/contact"
           className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent/80 hover:scale-[1.02]"
         >
           Get in Touch
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </a>
       </motion.div>
-    </main>
+    </div>
   );
 }

@@ -1,20 +1,30 @@
 "use client";
 
 import { Hero } from "@/components/hero";
-import { Section } from "@/components/section";
-import { Footer } from "@/components/footer";
 import { resume } from "@/lib/resume";
-import { blogPosts } from "@/lib/content";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, GraduationCap, BookOpen, Rocket } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
+
+const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
 
 export default function Home() {
   return (
-    <div className="space-y-20 sm:space-y-28">
+    <div className="mx-auto max-w-4xl space-y-20">
       <Hero />
 
-      <Section title="At a Glance" emoji="🎯">
+      {/* At a Glance Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="space-y-8"
+      >
+        <div className="flex items-center gap-4">
+          <h2 className="text-2xl font-bold text-white">🎯 At a Glance</h2>
+          <div className="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent" />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,9 +41,20 @@ export default function Home() {
             </p>
           </div>
         </motion.div>
-      </Section>
+      </motion.section>
 
-      <Section title="Featured Projects" kicker="Build Log" emoji="🚀">
+      {/* Featured Projects Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="space-y-8"
+      >
+        <div className="flex items-center gap-4">
+          <h2 className="text-2xl font-bold text-white">🚀 Featured Projects</h2>
+          <div className="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent" />
+        </div>
         <div className="space-y-8">
           {resume.projects.slice(0, 2).map((project, idx) => (
             <motion.article
@@ -50,7 +71,7 @@ export default function Home() {
               {project.thumbnail && (
                 <div className="relative h-56 overflow-hidden sm:h-64">
                   <img
-                    src={project.thumbnail}
+                    src={`${basePath}${project.thumbnail}`}
                     alt={project.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -108,36 +129,20 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
-      </Section>
+      </motion.section>
 
-      <Section title="Latest Posts" kicker="Writing" emoji="📝">
-        <div className="space-y-6">
-          {blogPosts.slice(0, 2).map((post, idx) => (
-            <motion.article
-              key={post.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ x: 8 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/30 p-5 backdrop-blur-sm transition-all hover:border-accent/30"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-                  {post.date ?? ""}
-                </p>
-                <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-neutral-400 leading-relaxed">{post.summary}</p>
-              </div>
-            </motion.article>
-          ))}
+      {/* Education Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="space-y-8"
+      >
+        <div className="flex items-center gap-4">
+          <h2 className="text-2xl font-bold text-white">🎓 Education</h2>
+          <div className="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent" />
         </div>
-      </Section>
-
-      <Section title="Education" kicker="Academics" emoji="🎓">
         <div className="space-y-6">
           {resume.education.map((edu, idx) => (
             <motion.article
@@ -149,27 +154,41 @@ export default function Home() {
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/30 p-6 backdrop-blur-sm transition-all hover:border-accent/30"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                  <GraduationCap className="h-6 w-6" />
-                </div>
-                <div className="flex-1 space-y-1">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">{edu.timeline}</p>
-                  <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
-                  <p className="text-neutral-400">{edu.school}</p>
-                  {edu.cgpa && (
-                    <p className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-sm font-semibold text-accent mt-2">
-                      {edu.cgpa}
-                    </p>
-                  )}
-                </div>
+              <div className="relative space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">{edu.timeline}</p>
+                <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+                <p className="text-neutral-400">{edu.school}</p>
+                {edu.cgpa && (
+                  <p className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-sm font-semibold text-accent mt-2">
+                    {edu.cgpa}
+                  </p>
+                )}
               </div>
             </motion.article>
           ))}
         </div>
-      </Section>
+      </motion.section>
 
-      <Footer />
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center gap-6 pt-8 text-center"
+      >
+        <div className="h-px w-24 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+        <p className="text-neutral-400">
+          Ready to work together?
+        </p>
+        <Link
+          href="/contact"
+          className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent/80 hover:scale-[1.02]"
+        >
+          Get in Touch
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </motion.div>
     </div>
   );
 }

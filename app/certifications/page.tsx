@@ -35,7 +35,7 @@ export default function CertificationsPage() {
   const totalCerts = resume.certifications.length;
 
   return (
-    <main className="mx-auto max-w-5xl space-y-16 px-4 py-20 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl space-y-16">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -181,6 +181,6 @@ export default function CertificationsPage() {
           Continuously expanding my skill set through professional certifications
         </p>
       </motion.div>
-    </main>
+    </div>
   );
 }
