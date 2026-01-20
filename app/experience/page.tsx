@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { resume } from "@/lib/resume";
 import { Users, Calendar, Sparkles, Heart, Trophy, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const iconMap: Record<string, React.ReactNode> = {
   "Student Member": <Users className="h-5 w-5" />,
@@ -126,13 +127,13 @@ export default function ExperiencePage() {
         <p className="text-neutral-400">
           Interested in collaborating?
         </p>
-        <a
+        <Link
           href="/contact"
           className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent/80 hover:scale-[1.02]"
         >
           Get in Touch
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </a>
+        </Link>
       </motion.div>
     </div>
   );

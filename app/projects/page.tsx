@@ -82,8 +82,17 @@ export default function ProjectsPage() {
                       rel="noreferrer"
                       className="group/btn inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent/80 hover:scale-[1.02]"
                     >
-                      <Github className="h-4 w-4" />
-                      View Code
+                      {project.link.includes('streamlit') ? (
+                        <>
+                          <ExternalLink className="h-4 w-4" />
+                          Live Demo
+                        </>
+                      ) : (
+                        <>
+                          <Github className="h-4 w-4" />
+                          View Code
+                        </>
+                      )}
                       <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </a>
                   )}

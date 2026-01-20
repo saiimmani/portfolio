@@ -89,17 +89,14 @@ export const resume: Resume = {
   ],
   projects: [
     {
-      title: "Gesture Controlled Robot Using MPU-6050",
-      timeline: "In-House Project – Jan 2025 to Jan 2026",
-      thumbnail: "/robot.png",
+      title: "AI Study Buddy",
+      link: "https://saiimmani-ai-study-buddy-app.streamlit.app/",
+      thumbnail: "/study.png",
       bullets: [
-        "Building a gesture-based robotic system that allows users to control robot movement through natural hand motions using the MPU-6050 (accelerometer + gyroscope).",
-        "Transmitter uses an Arduino Nano connected to the MPU-6050 to capture and process real-time gesture data.",
-        "Processed gesture data is wirelessly transmitted to the robot using the Zigbee protocol for long-range, low-power communication.",
-        "Robot is powered by an Arduino Mega, translating Zigbee signals into motor control commands via the motor driver.",
-        "Key features: real-time gesture recognition with orientation data, reliable Zigbee communication, modular architecture for expandable sensor integration.",
-        "Technologies and components: Arduino Nano, Arduino Mega, MPU-6050, Zigbee modules, motor driver, Embedded C.",
-        "Status: Successfully capturing and transmitting gesture data wirelessly; optimizing response time and motion stability."
+        "Developed an AI-powered study companion to help students understand complex concepts and improve their learning experience.",
+        "Features include concept explanation in simple terms, automatic summarization of study notes, and intelligent quiz/flashcard generation.",
+        "Solves the problem of finding relevant educational resources and provides on-demand personalized learning support.",
+        "Tools used: Streamlit, Python, AI APIs, LLMs."
       ]
     },
     {
@@ -125,14 +122,13 @@ export const resume: Resume = {
       ]
     },
     {
-      title: "AI Study Buddy",
-      link: "https://saiimmani-ai-study-buddy-app.streamlit.app/",
+      title: "Gesture Controlled Robot Using MPU-6050",
+      timeline: "In-House Project – Jan 2025 to Jan 2026",
+      thumbnail: "/robot.png",
       bullets: [
-        "Developed an AI-powered study companion to help students understand complex concepts and improve their learning experience.",
-        "Features include concept explanation in simple terms, automatic summarization of study notes, and intelligent quiz/flashcard generation.",
-        "Solves the problem of finding relevant educational resources and provides on-demand personalized learning support when teachers aren't available.",
-        "Built with Streamlit for an intuitive user interface and integrated with advanced AI models for content generation and analysis.",
-        "Tools used: Streamlit, Python, AI APIs, LLMs."
+        "Building a gesture-based robotic system using MPU-6050 sensor for real-time hand motion detection.",
+        "Wireless communication via Zigbee protocol between Arduino Nano (transmitter) and Arduino Mega (receiver).",
+        "Technologies: Arduino Nano, Arduino Mega, MPU-6050, Zigbee modules, motor driver, Embedded C."
       ]
     }
   ],

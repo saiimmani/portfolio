@@ -97,7 +97,7 @@ export default function Home() {
                       rel="noreferrer"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      View
+                      {project.link.includes('streamlit') ? 'Live Demo' : 'View'}
                     </a>
                   )}
                 </div>
